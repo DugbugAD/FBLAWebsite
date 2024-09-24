@@ -395,7 +395,7 @@ const Footer = () => (
         </div>
       </div>
       <div className="mt-12 pt-8 border-t border-white/20 text-center">
-        <p className="text-sm text-gray-300">&copy; 2024 Fremont High School FBLA. All rights reserved.</p>
+        <p className="text-sm text-gray-300">&copy; 2024 Fremont High School FBLA. All rights reserved. Website programmed and designed by Aditya Prakash.</p>
       </div>
     </div>
   </footer>
