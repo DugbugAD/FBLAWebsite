@@ -176,7 +176,7 @@ const Officers = () => (
         {FetchCSVData('https://docs.google.com/spreadsheets/d/1CQohBZDjEJXobyjHh9X-VyeBx8D8CXJ_sCL-ujLCpoM/pub?output=csv').map((officer, index) => (
           <div key={index} className="flex flex-col items-center">
             <div className="w-48 h-48 rounded-full overflow-hidden mb-4">
-              <img src={`/api/placeholder/200/200?text=${officer['name']}`} alt={officer['name']} className="w-full h-full object-cover" />
+              <img src={"https://drive.google.com/thumbnail?id=" + officer['imageId']} alt={officer['name']} className="w-full h-full object-cover" />
             </div>
             <h3 className="text-xl font-semibold text-[#0a2e7f]">{officer['name']}</h3>
             <p className="text-[#1d52bc]">{officer['role']}</p>
@@ -211,11 +211,11 @@ const PhotoGallery = () => (
     <div className="container mx-auto">
       <h2 className="text-4xl font-bold text-center mb-12 text-[#0a2e7f]">Capturing Moments</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        {[1, 2, 3, 4].map((i) => (
+        {FetchCSVData("https://docs.google.com/spreadsheets/d/1pB3eSUzYCRNd6IcE35n20WsgQ4WLvDdqPI1AJ-AoZ14/pub?output=csv").map((image, i) => (
           <div key={i} className="group relative overflow-hidden rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
-            <img src={`/api/placeholder/400/400?text=Event ${i}`} alt={`Event ${i}`} className="w-full h-full object-cover transition duration-300 group-hover:scale-110" />
+            <img src={image['url']} alt={image['url']} className="w-full h-full object-cover transition duration-300 group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a2e7f] to-transparent opacity-0 group-hover:opacity-70 transition duration-300"></div>
-            <p className="absolute bottom-4 left-4 text-white font-semibold opacity-0 group-hover:opacity-100 transition duration-300">Event {i}</p>
+            <p className="absolute bottom-4 left-4 text-white font-semibold opacity-0 group-hover:opacity-100 transition duration-300">Photo {i+1}</p>
           </div>
         ))}
       </div>
