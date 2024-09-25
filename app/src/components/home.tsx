@@ -85,7 +85,7 @@ const HeroSection = () => (
       >
         <h1 className="text-white text-6xl font-bold leading-tight">
           Welcome to <br />
-          <span className="text-[#f4ab19]">Fremont High School FBLA testest</span>
+          <span className="text-[#f4ab19]">Fremont High School FBLA</span>
         </h1>
         <p className="text-gray-200 text-xl max-w-2xl mx-auto">Official FBLA Chapter of Fremont High School, Sunnyvale California</p>
         {FetchCSVData('https://docs.google.com/spreadsheets/d/13wP7fcFZSnfZxrsDVAhcbEc16gLS8eD7mZx1vo5JtTA/pub?output=csv').map((contact) => (
