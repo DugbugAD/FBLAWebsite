@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import React, { useState, useEffect } from 'react';
-import { Calendar, Mail, Users, FileText, Award, CheckSquare, Image, ChevronRight, MessageCircle, Instagram, ArrowRight, ExternalLink, Album } from 'lucide-react';
+import { Calendar, Mail, Users, FileText, Award, CheckSquare, Image, ChevronRight, MessageCircle, Instagram, ArrowRight, ExternalLink, Album, BookOpen, Target, TrendingUp, Rocket } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FetchCSVData from '../FetchCSVData';
 
@@ -13,6 +13,7 @@ const HomePage = () => {
       <HeroSection />
       <UpcomingEvents />
       <QuickLinks />
+      <SEEDProgram />
       <GoogleSlides />
       <ContactUs />
       <Officers />
@@ -55,7 +56,7 @@ const Header = () => {
         
         <nav>
           <ul className="flex space-x-6">
-            {['Events', 'Links', 'Slides', 'Contact', 'Officers', 'Awards', 'Photos'].map((item) => (
+            {['Events', 'Links', 'SEED', 'Slides', 'Contact', 'Officers', 'Awards', 'Photos'].map((item) => (
               <motion.li key={item} whileHover={{ scale: 1.1 }}>
                 <a 
                   href={`#${item.toLowerCase()}`} 
@@ -288,6 +289,108 @@ const OfficerCard = ({ officer }: { officer: any}) => (
   </motion.div>
 );
 
+
+const SEEDProgram = () => (
+  <section id="seed" className="py-20 bg-gradient-to-br from-white to-gray-100">
+    <div className="container mx-auto px-4">
+      <motion.h2 
+        className="text-5xl font-bold text-center mb-16 text-[#0a2e7f]"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        SEED Program
+      </motion.h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <motion.div 
+          className="bg-white p-8 rounded-3xl shadow-xl overflow-hidden relative"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <h3 className="text-3xl font-bold mb-6 text-[#0a2e7f]">Our Mission</h3>
+          <p className="text-lg text-gray-700 mb-6">
+            At Fremont FBLA, we believe that Financial education is about more than dollars and cents; it <span className="font-bold text-[#f4ab19]">empowers</span> people to become financially dependent and avoid debt.
+          </p>
+          <p className="text-lg text-gray-700 mb-6">
+            Our mission is to produce <span className="font-bold text-[#f4ab19]">economic equality</span> by ensuring everyone is equipped to secure their financial future.
+          </p>
+          <p className="text-lg text-gray-700">
+            We will achieve this by <span className="font-bold text-[#f4ab19]">spreading financial literacy</span> through the youth of our community.
+          </p>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#f4ab19] opacity-10 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+        </motion.div>
+        
+        <motion.div 
+          className="bg-gradient-to-br from-[#0a2e7f] to-[#1d52bc] p-8 rounded-3xl shadow-xl text-white relative overflow-hidden"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <h3 className="text-3xl font-bold mb-6">Program Overview</h3>
+          <ul className="space-y-4">
+            <li className="flex items-start">
+              <BookOpen className="mr-4 flex-shrink-0 mt-1 text-[#f4ab19]" size={24} />
+              <span>Teaching middle school children about Financial Literacy and Entrepreneurship</span>
+            </li>
+            <li className="flex items-start">
+              <Rocket className="mr-4 flex-shrink-0 mt-1 text-[#f4ab19]" size={24} />
+              <span>Engaging learning methods: Pitch Development and Shark Tank</span>
+            </li>
+            <li className="flex items-start">
+              <Target className="mr-4 flex-shrink-0 mt-1 text-[#f4ab19]" size={24} />
+              <span>Fall 2024 - Spring 2026</span>
+            </li>
+          </ul>
+          <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#f4ab19] opacity-10 rounded-full transform translate-x-1/2 translate-y-1/2"></div>
+        </motion.div>
+      </div>
+      
+      <motion.div 
+        className="mt-12 bg-white p-8 rounded-3xl shadow-xl overflow-hidden relative"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+      >
+        <h3 className="text-3xl font-bold mb-6 text-[#0a2e7f]">Our Goals</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <GoalCard 
+            icon={<TrendingUp size={48} />}
+            title="Summer 2025"
+            description="Reach 5 schools"
+          />
+          <GoalCard 
+            icon={<TrendingUp size={48} />}
+            title="Summer 2026"
+            description="Reach 15 schools"
+          />
+          <GoalCard 
+            icon={<Users size={48} />}
+            title="Program Conclusion"
+            description="Spread Financial Education to 1000 middle school children"
+          />
+        </div>
+        <div className="absolute top-0 left-0 w-40 h-40 bg-[#0a2e7f] opacity-5 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#0a2e7f] opacity-5 rounded-full transform translate-x-1/2 translate-y-1/2"></div>
+      </motion.div>
+    </div>
+  </section>
+);
+
+const GoalCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
+  <motion.div 
+    className="flex flex-col items-center text-center p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl shadow-md"
+    whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
+    transition={{ type: "spring", stiffness: 300, damping: 10 }}
+  >
+    <div className="text-[#f4ab19] mb-4">
+      {icon}
+    </div>
+    <h4 className="text-xl font-semibold mb-2 text-[#0a2e7f]">{title}</h4>
+    <p className="text-gray-700">{description}</p>
+  </motion.div>
+);
+
 const Awards = () => (
   <section id="awards" className="py-20 bg-gradient-to-b from-white to-gray-100">
     <div className="container mx-auto px-4">
@@ -376,7 +479,7 @@ const Footer = () => (
         <div className="text-center">
           <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
           <ul className="space-y-2">
-            {['Events', 'Links', 'Slides', 'Contact', 'Officers', 'Awards', 'Photos'].map((item) => (
+            {['Events', 'Links', 'Seed', 'Slides', 'Contact', 'Officers', 'Awards', 'Photos'].map((item) => (
               <li key={item}>
                 <a href={`#${item.toLowerCase()}`} className="hover:text-[#f4ab19] transition duration-300">{item}</a>
               </li>
